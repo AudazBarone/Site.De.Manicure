@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+        .hidden {
+    display: none;
+          }
+
+        
+        .lidia {
+            color: pink;
+            text-align: center;
+        }
+
+        .ticker {
+            background-color: black;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ticker__article {
+            color: white;
+            font-size: 20px;
+            white-space: nowrap;
+            animation: ticker-animation 30s linear infinite;
+            cursor: pointer;
+        }
+
+        .ticker__article a {
+            display: none;
+        }
+
+        @keyframes ticker-animation {
+            0% {
+                transform: translateX(50%);
+            }
+
+            25% {
+                transform: translateX(-100%);
+            }
+
+            75% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(50%);
+            }
+        }
+
+         body {
+         font-family: "Book Antiqua", serif;
+         background: url("https://i.imgur.com/dFKT2kM.png") fixed;
+         background-size: 100% 100%;
+         font-size: 20px;
+       }
+
+
+
+
+
+        
+
+        @keyframes blink {
+            0% {
+                color: inherit;
+            }
+
+            50% {
+                color: rgb(250, 147, 207);
+            }
+
+            100% {
+                color: black;
+            }
+        }
+
+
+        .blink-text {
+            animation: blink 15s infinite;
+            cursor: pointer;
+        }
+
+        .blink-text.clicked {
+            animation: none;
+            color: yellow;
+        }
+
+        .image-section {
+            display: none;
+            width: 350px;
+            height: 350px;
+            border: 2px solid pink;
+            border-radius: 10px;
+
+
+        }
+
+        .hidden-image {
+            display: none;
+            width: 350px;
+            height: 350px;
+            border: 2px solid pink;
+            border-radius: 10px;
+        }
+
+        .hidden-image img {
+            display: flex;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            margin-right: 3px;
+        }
+
+        .show-image .hidden-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container img {
+            margin-right: 5px;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            background-color: pink;
+            border-radius: 5px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .show-arrow {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .inline {
+            display: inline;
+            margin-left: 4%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ticker">
+        <span class="ticker__article blink-text" onclick="openWhatsApp()">
+            Clique aqui e marque a sua !
+        </span>
+    </div>
+    <br><br><br><br>
+    <div class="lidia blink-text" style="color: rgb(250, 147, 207);">Beauty Space A L F A</div>
+
+    <div>
+
+        <div>
+            <br><br>
+            <p class="blink-text inline" onclick="toggleBlink(this); toggleImages(this)">Modelos</p>
+            <p class="blink-text inline" onclick="toggleBlink(this); toggleImages(this)">Valores</p>
+            <p class="blink-text inline" onclick="toggleBlink(this); toggleImages(this)">Dicas</p>
+            <p class="blink-text inline" onclick="toggleBlink(this); toggleImages(this)">Contatos</p>
+        </div>
+
+
+        <div class="image-container">
+            <div class="hidden-image">
+                <img src="https://i.imgur.com/hhECZ6C.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/2d6qHGs.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/ESJqGNz.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/mePQ8A1.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/dA3tBzf.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/UZXsBw4.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/T8w16e0.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/SCgmkv5.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/NlXVa0q.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/utwVkiD.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/3NBN3Sb.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/bPwQrm6.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/i1OCAn8.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/oScRU7L.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/MmOPCrW.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/FZiqOx6.jpg" title="source: imgur.com" />
+            </div>
+            <div class="image-section">
+                <img src="https://i.imgur.com/wKOhzwf.jpg" title="source: imgur.com" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="values-text hidden">
+        <h5>⚫️R$ 15,00 Mão simples </h5>
+        <h5>⚫️R$ 15,00 Pé Simples </h5>
+        <h5>⚫️R$ 30,00 Mão e Pé simples</h5>
+        <h5>⚫️R$ 20,00 Mão decorada </h5>
+        <h5>⚫️R$ 20,00 Pé decorado</h5>
+        <h5>⚫️R$ 40,00 Mão e Pé decorado</h5>
+
+        <br><br>
+        <h4 style="border: 5px solid black; background-color: black; color: pink; text-align: center;">C O M B O S</h4>
+
+
+
+        <br>
+        <h5>⚫️R$ 75,00 pé e mão simples uma vez na semana durante 1 mês</h5>
+        <h5>⚫️R$ 119,00 pé e mão decorada uma vez na semana durante 1 mês</h5>
+        <h5>⚫️R$ 50,00 pé e mão simples 2 vezes no mês</h5>
+        <h5>⚫️R$ 70,00 pé e mão decorada 2 vezes no mês</h5>
+    
+    
+    </div>
+
+
+
+    <div class="values-text2 hidden">
+        
+
+    <h3 style="border: 5px solid black; background-color: black; color: pink; text-align: center;">30 Dicas de cuidado para unhas:</h3>
+
+        
+<ol>
+  <li>Mantenha as unhas limpas e secas.</li>
+  <li>Evite roer as unhas.</li>
+  <li>Use luvas ao realizar tarefas domésticas ou trabalhos pesados.</li>
+  <li>Evite o contato prolongado com água.</li>
+  <li>Use um removedor de esmalte sem acetona.</li>
+  <li>Evite cortar as cutículas, em vez disso, empurre-as suavemente para trás.</li>
+  <li>Use uma base fortalecedora antes de aplicar o esmalte.</li>
+  <li>Dê às suas unhas um descanso de esmaltes e produtos químicos regularmente.</li>
+  <li>Hidrate suas mãos e unhas diariamente com um creme ou óleo.</li>
+  <li>Evite usar unhas postiças com frequência, pois elas podem enfraquecer as unhas naturais.</li>
+  <li>Evite usar esmaltes velhos ou vencidos.</li>
+  <li>Use uma lixa de unha de qualidade para modelar e polir as unhas.</li>
+  <li>Evite usar unhas como ferramentas para abrir objetos.</li>
+  <li>Não corte as unhas muito curtas, pois isso pode aumentar o risco de infecções.</li>
+  <li>Mantenha uma alimentação balanceada e rica em vitaminas e minerais para promover a saúde das unhas.</li>
+  <li>Evite o uso excessivo de esmaltes de longa duração, pois eles podem enfraquecer as unhas.</li>
+  <li>Proteja as unhas do sol, aplicando um protetor solar nas mãos.</li>
+  <li>Evite usar removedor de esmalte com muita frequência, pois pode ressecar as unhas.</li>
+  <li>Mantenha uma boa circulação nas mãos e nos dedos, fazendo exercícios regulares.</li>
+  <li>Evite usar produtos de limpeza agressivos diretamente nas unhas.</li>
+  <li>Não cutuque ou puxe peles soltas ao redor das unhas.</li>
+  <li>Use luvas de proteção ao entrar em contato com substâncias químicas fortes.</li>
+  <li>Evite bater ou esfregar as unhas com força.</li>
+  <li>Evite o uso de esmaltes de cores escuras com muita frequência, pois eles podem manchar as unhas.</li>
+  <li>Mantenha suas unhas bem aparadas para evitar quebras e lascas.</li>
+  <li>Não use as unhas para coçar a pele ou remover sujeira.</li>
+  <li>Evite o uso de removedores de cutícula agressivos.</li>
+  <li>Massageie as cutículas com óleo de jojoba ou azeite de oliva para mantê-las hidratadas.</li>
+  <li>Use um endurecedor de unhas caso tenha unhas frágeis.</li>
+  <li>Consulte um dermatologista caso tenha algum problema persistente com suas unhas.</li>
+</ol>
+
+        <br><br>
+
+<h3 style="border: 5px solid black; background-color: black; color: pink; text-align: center;"> 15 Formas de cuidar das unhas:</h3>
+
+<ol>
+  <li>Mantenha as unhas limpas.</li>
+  <li>Use produtos de qualidade.</li>
+  <li>Hidrate as unhas.</li>
+  <li>Alimentação saudável.</li>
+  <li>Evite roer as unhas.</li>
+  <li>Use luvas ao realizar tarefas domésticas.</li>
+  <li>Corte e modele corretamente.</li>
+  <li>Não use as unhas como ferramentas.</li>
+  <li>Descanse do esmalte.</li>
+  <li>Proteja as unhas do sol.</li>
+  <li>Cuide das cutículas.</li>
+  <li>Evite unhas postiças.</li>
+  <li>Evite o uso excessivo de acetona.</li>
+  <li>Tenha cuidado ao aplicar esmalte.</li>
+  <li>Consulte um profissional.</li>
+</ol>
+
+
+
+
+
+        
+        
+    </div>
+
+<div class="values-text3 hidden">
+    <h5 style="font-family: Arial; font-weight: normal; border: 1px solid black; background-color: black; color: white;">
+        <a href="https://wa.me/5571984819075">WhatsApp</a><br>
+        E-mail: alfabeautyspace@gmail.com<br>
+        Contato: +55 71 9 8481-9075<br>
+       
+    </h5>
+</div>
+
+
+
+
+
+    <div class="arrow-left" onclick="scrollImages('left')">&lt;</div>
+    <div class="arrow-right" onclick="scrollImages('right')">&gt;</div>
+
+    <script>
+        function openWhatsApp() {
+            window.location.href = "https://wa.me/5571984819075";
+        }
+
+        function toggleBlink(element) {
+            element.classList.toggle("clicked");
+        }
+
+        function toggleImages(element) {
+            var imageContainer = document.querySelector(".image-container");
+            var imageSections = document.querySelectorAll(".image-section");
+
+            if (element.innerText === "Modelos") {
+                imageContainer.classList.add("show-image");
+                imageSections.forEach(function (section) {
+                    section.style.display = "flex";
+                });
+            } else {
+                imageContainer.classList.remove("show-image");
+                imageSections.forEach(function (section) {
+                    section.style.display = "none";
+                });
+            }
+
+            var arrowLeft = document.querySelector(".arrow-left");
+            var arrowRight = document.querySelector(".arrow-right");
+
+            if (imageContainer.classList.contains("show-image")) {
+                arrowLeft.classList.add("show-arrow");
+                arrowRight.classList.add("show-arrow");
+            } else {
+                arrowLeft.classList.remove("show-arrow");
+                arrowRight.classList.remove("show-arrow");
+            }
+
+           var valuesText = document.querySelector(".values-text");
+
+          if (element.innerText === "Valores") {
+           valuesText.classList.toggle("hidden");
+           }
+
+          var valuesText = document.querySelector(".values-text2");
+
+          if (element.innerText === "Dicas") {
+           valuesText.classList.toggle("hidden");
+           }
+
+          var valuesText = document.querySelector(".values-text3");
+
+          if (element.innerText === "Contatos") {
+           valuesText.classList.toggle("hidden");
+           } 
+
+                                                          
+
+        
+        }
+
+
+        function scrollImages(direction) {
+            var imageContainer = document.querySelector(".image-container");
+            var scrollAmount = direction === "left" ? -200 : 200;
+            imageContainer.scrollBy({
+                top: 0,
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    </script>
+</body>
+
+</html>
